@@ -1,4 +1,4 @@
-{% set version = '0.6' %}
+{% set version = '1.0' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,18 +10,18 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/webutils_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/webutils/webutils_{{ version }}.tar.gz
-  sha256: fadaea7b20e00c756ab69ab456f55efe26abcc6f33443d0bb7c9a32af0a15aad
+  sha256: 412f6ea0ae5572fa7872880832f8849b5d31f1937a412db55d927d28b3db1b4e
 
 build:
   merge_build_host: True  # [win]
-  number: 1001
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
@@ -46,35 +46,33 @@ test:
 about:
   home: https://github.com/jeroen/webutils
   license: MIT
-  summary: High performance in-memory http request parser for application/json,  multipart/form-data,
-    and application/x-www-form-urlencoded. Includes live demo of hosting and parsing
-    multipart forms with either 'httpuv' or 'Rhttpd'.
+  summary: Parses http request data in application/json, multipart/form-data, or application/x-www-form-urlencoded
+    format. Includes example of hosting and parsing html form data in R using either
+    'httpuv' or 'Rhttpd'.
   license_family: MIT
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - LICENSE
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
 
 # Package: webutils
 # Type: Package
 # Title: Utility Functions for Developing Web Applications
-# Version: 0.6
+# Version: 1.0
 # Author: Jeroen Ooms
 # Maintainer: Jeroen Ooms <jeroen@berkeley.edu>
-# Description: High performance in-memory http request parser for application/json,  multipart/form-data, and application/x-www-form-urlencoded. Includes live demo of hosting and parsing multipart forms with either 'httpuv' or 'Rhttpd'.
+# Description: Parses http request data in application/json, multipart/form-data, or application/x-www-form-urlencoded format. Includes example of hosting and parsing html form data in R using either 'httpuv' or 'Rhttpd'.
 # License: MIT + file LICENSE
 # URL: https://github.com/jeroen/webutils
 # BugReports: https://github.com/jeroen/webutils/issues
 # Imports: curl (>= 2.5), jsonlite
 # Suggests: httpuv, testthat
-# RoxygenNote: 6.0.1
+# RoxygenNote: 6.1.1
+# Language: en-US
 # NeedsCompilation: yes
-# Packaged: 2017-06-23 17:21:23 UTC; jeroen
+# Packaged: 2019-08-21 10:13:03 UTC; jeroen
 # Repository: CRAN
-# Date/Publication: 2017-06-23 19:06:40 UTC
+# Date/Publication: 2019-08-21 12:40:06 UTC
