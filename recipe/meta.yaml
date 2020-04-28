@@ -1,4 +1,4 @@
-{% set version = '1.0' %}
+{% set version = "1.1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/webutils_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/webutils/webutils_{{ version }}.tar.gz
-  sha256: 412f6ea0ae5572fa7872880832f8849b5d31f1937a412db55d927d28b3db1b4e
+  sha256: 33e2b408d2b9ca12e158e0007d4a55a3ace6838341ad944344de2ceb806e4699
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   rpaths:
     - lib/R/lib/
@@ -23,18 +23,18 @@ requirements:
   build:
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
-    - {{posix}}filesystem        # [win]
-    - {{posix}}make
-    - {{posix}}sed               # [win]
-    - {{posix}}coreutils         # [win]
-    - {{posix}}zip               # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
   host:
     - r-base
     - r-curl >=2.5
     - r-jsonlite
   run:
     - r-base
-    - {{native}}gcc-libs         # [win]
+    - {{ native }}gcc-libs         # [win]
     - r-curl >=2.5
     - r-jsonlite
 
@@ -46,12 +46,10 @@ test:
 about:
   home: https://github.com/jeroen/webutils
   license: MIT
-  summary: Parses http request data in application/json, multipart/form-data, or application/x-www-form-urlencoded
-    format. Includes example of hosting and parsing html form data in R using either
-    'httpuv' or 'Rhttpd'.
+  summary: Parses http request data in application/json, multipart/form-data, or application/x-www-form-urlencoded format. Includes example of hosting and parsing html form data in R using either 'httpuv' or 'Rhttpd'.
   license_family: MIT
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
     - LICENSE
 
 extra:
