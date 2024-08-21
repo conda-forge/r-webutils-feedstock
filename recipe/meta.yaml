@@ -34,6 +34,7 @@ requirements:
     - r-jsonlite
   run:
     - r-base
+    - {{ native }}gcc-libs         # [win]
     - r-curl >=2.5
     - r-jsonlite
 
