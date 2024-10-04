@@ -1,4 +1,4 @@
-{% set version = "1.2.0" %}
+{% set version = "1.2.2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/webutils_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/webutils/webutils_{{ version }}.tar.gz
-  sha256: 51243a1d7843dbb3968e7725c2266e1d68dcec43b919c320033f611ff9ca7f3c
+  sha256: a534a225bfd08dc6ad61480f177eda97fadc3fc8fd66f23ad6cb327dcf68661e
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
